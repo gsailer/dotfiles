@@ -11,7 +11,7 @@ alias cp='rsync -ah --progress'
 alias t='tmux'
 alias ta='tmux attach -t'
 
-if [ $platform == 'Darwin' ]; then
+if [ $platform = 'Darwin' ]; then
     alias lsusb='system_profiler SPUSBDataType'
     alias pdf='open'
     alias mountntfs='sudo /usr/local/bin/ntfs-3g'
