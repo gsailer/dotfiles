@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/gabriel/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -112,3 +112,7 @@ set -o vi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# add mvn to path if available
+if [ -d "$HOME/pkg/apache-maven-3.6.1" ]; then
+    export PATH="${HOME}/pkg/apache-maven-3.6.1/bin:$PATH"
+fi
