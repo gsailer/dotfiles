@@ -116,3 +116,8 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 if [ -d "$HOME/pkg/apache-maven-3.6.1" ]; then
     export PATH="${HOME}/pkg/apache-maven-3.6.1/bin:$PATH"
 fi
+
+# add ansible hosts if available
+if [ -f "$HOME/.ansible_hosts" ]; then
+    export ANSIBLE_INVENTORY=$HOME/.ansible_hosts
+fi
