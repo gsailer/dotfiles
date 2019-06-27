@@ -1,0 +1,56 @@
+#!/bin/bash
+# dotfiles deploy for debian based systems
+
+# gracefully move old files away if they exist
+if [[ -e "$HOME"/.vimrc || -e "$HOME"/.zshrc || -e "$HOME"/.aliases ]]; then
+	echo "[INFO] Moving current dotfiles to filename.old"
+    timestamp=$(date +%s)
+    if [ -e "$HOME"/.vimrc ]; then
+        mv "$HOME"/.vimrc "$HOME"/.vimrc.old-"$timestamp"
+    fi
+    if [ -e "$HOME"/.zshrc ]; then
+        mv "$HOME"/.zshrc "$HOME"/.zshrc.old-"$timestamp"
+    fi
+    if [ -e "$HOME"/.aliases ]; then
+        mv "$HOME"/.aliases "$HOME"/.zshrc.old-"$timestamp"
+    fi
+fi
+
+# install zsh if not installed 
+if [ ! -e /bin/zsh ]; then
+	echo "[INFO] Installing zsh"
+    sudo apt install zsh
+fi
+
+# check for ohmyzsh
+if [ ! -d "$HOME"/.oh-my-zsh ]; then
+	if [ ! -f /usr/bin/curl ]; then
+		echo "[INFO] Installing curl"
+		sudo apt install curl
+	fi
+	echo "[INFO] Setting up ohmyzsh"
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh) exit"
+    # mv default zshrc away
+    if [ -e "$HOME"/.zshrc ]; then
+        mv "$HOME"/.zshrc "$HOME"/.zshrc-orig-omz
+    fi
+fi
+
+# get gitster ohmyzsh theme
+if [ ! -e "$HOME"/.oh-my-zsh/custom/themes/gitster.zsh-theme ]; then
+	echo "[INFO] Getting gitster zsh theme"
+	curl https://raw.githubusercontent.com/shashankmehta/dotfiles/master/thesetup/zsh/.oh-my-zsh/custom/themes/gitster.zsh-theme -o "$HOME"/.oh-my-zsh/custom/themes/gitster.zsh-theme
+fi
+
+# install pyenv
+if [ ! -d "$HOME"/.pyenv ]; then
+	echo "[INFO] Installing pyenv"
+	curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+fi
+
+ln -s "$(pwd)"/vimrc "$HOME"/.vimrc
+ln -s "$(pwd)"/zshrc "$HOME"/.zshrc
+ln -s "$(pwd)"/aliases "$HOME"/.aliases
+if [ $? -eq 0 ]; then
+    echo "[INFO] created symlinks for dotfiles"
+fi
