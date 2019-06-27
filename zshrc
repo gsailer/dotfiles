@@ -100,9 +100,9 @@ if [ -f $HOME/.aliases ]; then
 fi
 
 # setup pyenv
-eval "$(pyenv init -)"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # set up shims in path
 export PATH="$(pyenv root)/shims:$PATH"
