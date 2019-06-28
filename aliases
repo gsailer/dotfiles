@@ -11,12 +11,12 @@ alias cp='rsync -ah --progress'
 alias t='tmux'
 alias ta='tmux attach -t'
 
-if [ -e /usr/bin/apt ]; then
+if [ -e /usr/local/bin/brew ]; then
+    alias upd='brew update && brew upgrade'
+elif [ -e /usr/bin/apt ]; then
     alias upd='sudo apt update && sudo apt upgrade'
 elif [ -e /usr/bin/pacman]; then
     alias upd='sudo pacman -Syu'
-elif [ -e /usr/local/bin/brew ]; then
-    alias upd='brew update && brew upgrade'
 fi
 
 if [ $platform = 'Darwin' ]; then
