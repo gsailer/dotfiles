@@ -332,6 +332,8 @@ Plug 'tell-k/vim-autopep8'
 Plug 'itchyny/lightline.vim'
 Plug 'lervag/vimtex'
 Plug 'mhinz/vim-grepper'
+Plug 'stephpy/vim-yaml'
+Plug 'chase/vim-ansible-yaml'
 call plug#end()
 
 " had to put that there so that all stuff is plugged in
