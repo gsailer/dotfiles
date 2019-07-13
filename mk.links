@@ -36,12 +36,6 @@ if [ ! -d "$HOME"/.oh-my-zsh ]; then
     fi
 fi
 
-# get gitster ohmyzsh theme
-if [ ! -e "$HOME"/.oh-my-zsh/custom/themes/gitster.zsh-theme ]; then
-	echo "[INFO] Getting gitster zsh theme"
-	curl https://raw.githubusercontent.com/shashankmehta/dotfiles/master/thesetup/zsh/.oh-my-zsh/custom/themes/gitster.zsh-theme -o "$HOME"/.oh-my-zsh/custom/themes/gitster.zsh-theme
-fi
-
 # install pyenv
 if [ ! -d "$HOME"/.pyenv ]; then
 	echo "[INFO] Installing pyenv"
