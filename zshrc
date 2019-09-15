@@ -109,6 +109,7 @@ export PATH="$(pyenv root)/shims:$PATH"
 
 export LC_ALL=en_US.UTF-8
 set -o vi
+export EDITOR=vim
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
