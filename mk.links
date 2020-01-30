@@ -1,6 +1,11 @@
 #!/bin/bash
 # dotfiles deploy for debian based systems
 
+if [ "$(pwd)" = "$HOME" ]; then
+    echo "[WARN] Execute only from the dotfiles repository."
+    exit 1
+fi
+
 # gracefully move old files away if they exist
 if [[ -e "$HOME"/.vimrc || -e "$HOME"/.zshrc || -e "$HOME"/.aliases ]]; then
 	echo "[INFO] Moving current dotfiles to filename.old"
