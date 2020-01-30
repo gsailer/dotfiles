@@ -16,7 +16,7 @@ if [ -e /usr/local/bin/brew ]; then
     alias upd='brew update && brew upgrade'
 elif [ -e /usr/bin/apt ]; then
     alias upd='sudo apt update && sudo apt upgrade'
-elif [ -e /usr/bin/pacman]; then
+elif [ -e /usr/bin/pacman ]; then
     alias upd='sudo pacman -Syu'
 fi
 
@@ -24,7 +24,7 @@ if [ $platform = 'Darwin' ]; then
     alias lsusb='system_profiler SPUSBDataType'
     alias pdf='open'
     alias mountntfs='sudo /usr/local/bin/ntfs-3g'
-else if [ $platform = 'Linux' ]; then
+elif [ $platform = 'Linux' ]; then
     alias open='xdg-open'
 fi
 

@@ -38,7 +38,7 @@ fi
 
 # add autosuggestions to ohmyzsh
 if [ ! -d "$HOME/.oh-my-zsh/plugins/zsh-autosuggestions" ]; then
-    git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME"/.oh-my-zsh/plugins/zsh-autosuggestions
 fi
 
 
