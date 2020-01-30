@@ -11,6 +11,7 @@ alias cp='rsync -ah --progress'
 alias t='tmux'
 alias ta='tmux attach -t'
 
+
 if [ -e /usr/local/bin/brew ]; then
     alias upd='brew update && brew upgrade'
 elif [ -e /usr/bin/apt ]; then
@@ -23,6 +24,8 @@ if [ $platform = 'Darwin' ]; then
     alias lsusb='system_profiler SPUSBDataType'
     alias pdf='open'
     alias mountntfs='sudo /usr/local/bin/ntfs-3g'
+else if [ $platform = 'Linux' ]; then
+    alias open='xdg-open'
 fi
 
 #functions

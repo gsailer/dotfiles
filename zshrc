@@ -62,7 +62,7 @@ ZSH_THEME="gallifrey"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose)
+plugins=(git docker docker-compose zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,7 +107,8 @@ eval "$(pyenv init -)"
 # set up shims in path
 export PATH="$(pyenv root)/shims:$PATH"
 
-export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=de_DE.UTF-8
 set -o vi
 export EDITOR=vim
 
@@ -116,6 +117,20 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # add mvn to path if available
 if [ -d "$HOME/pkg/apache-maven-3.6.1" ]; then
     export PATH="${HOME}/pkg/apache-maven-3.6.1/bin:$PATH"
+fi
+
+# add go to path if available
+if [ -d "/usr/local/go" ]; then
+    export PATH="$PATH:/usr/local/go/bin"
+fi
+
+# add go binarys to path if availabe
+if [ -d "$HOME/go/bin" ]; then
+    export PATH="$PATH:$HOME/go/bin"
+fi
+
+if [ -d "$HOME/pkg/flutter" ]; then
+    export PATH="$PATH:$HOME/pkg/flutter/bin"
 fi
 
 # add ansible hosts if available

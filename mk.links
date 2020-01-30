@@ -36,6 +36,12 @@ if [ ! -d "$HOME"/.oh-my-zsh ]; then
     fi
 fi
 
+# add autosuggestions to ohmyzsh
+if [ ! -d "$HOME/.oh-my-zsh/plugins/zsh-autosuggestions" ]; then
+    git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/plugins/zsh-autosuggestions
+fi
+
+
 # install pyenv
 if [ ! -d "$HOME"/.pyenv ]; then
 	echo "[INFO] Installing pyenv"
