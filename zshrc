@@ -109,8 +109,12 @@ export PATH="$(pyenv root)/shims:$PATH"
 
 export LANG=en_US.UTF-8
 export LC_ALL=de_DE.UTF-8
+
 set -o vi
 export EDITOR=vim
+
+# add back reverse-search in vim mode
+bindkey "^R" history-incremental-search-backward
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -137,3 +141,10 @@ fi
 if [ -f "$HOME/.ansible_hosts" ]; then
     export ANSIBLE_INVENTORY=$HOME/.ansible_hosts
 fi
+
+if [ -d "/opt/gurobi901" ]; then
+    export GUROBI_HOME="/opt/gurobi901/linux64"
+    export PATH="$PATH:$GUROBI_HOME/bin"
+    export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
+fi
+
