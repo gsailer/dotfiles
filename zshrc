@@ -119,8 +119,8 @@ bindkey "^R" history-incremental-search-backward
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # add mvn to path if available
-if [ -d "$HOME/pkg/apache-maven-3.6.1" ]; then
-    export PATH="${HOME}/pkg/apache-maven-3.6.1/bin:$PATH"
+if [ -d "$HOME/pkg/apache-maven-3.6.3" ]; then
+    export PATH="${HOME}/pkg/apache-maven-3.6.3/bin:$PATH"
 fi
 
 # add go to path if available
